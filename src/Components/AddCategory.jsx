@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onAddCategory }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputValue = ({ target }) => {
@@ -12,7 +12,7 @@ export const AddCategory = ({ setCategories }) => {
     event.preventDefault();
     if (inputValue === "") return;
 
-    setCategories((categories) => [inputValue, ...categories]);
+    onAddCategory(inputValue);
     setInputValue("");
   };
 
