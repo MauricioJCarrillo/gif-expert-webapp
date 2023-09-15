@@ -1,16 +1,19 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
-  const [inputValue, setInputValue] = useState("Hola");
+// eslint-disable-next-line react/prop-types
+export const AddCategory = ({ setCategories }) => {
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputValue = ({ target }) => {
-    console.log(target.value);
     setInputValue(target.value);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    if (inputValue === "") return;
+
+    setCategories((categories) => [inputValue, ...categories]);
+    setInputValue("");
   };
 
   return (
