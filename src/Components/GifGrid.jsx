@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
 import { getGifs } from "../helpers/getGifs";
+import { useEffect } from "react";
 
 export const GifGrid = ({ category }) => {
-  getGifs(category);
+  useEffect(() => {
+    getGifs(category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
